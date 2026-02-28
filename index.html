@@ -6,6 +6,25 @@
 <title>Salaudeen Portfolio</title>
 <style>
 
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border:8px solid #eee;
+  border-top:8px solid #a855f7;
+  border-radius:50%;
+  width:80px;
+  height:80px;
+  animation:spin 1s linear infinite;
+  z-index:2000;
+}
+@keyframes spin{
+  0%{transform:translate(-50%,-50%) rotate(0deg);}
+  100%{transform:translate(-50%,-50%) rotate(360deg);}
+}
+
 /* ===== BACKGROUND ===== */
 body{
     margin:0;
@@ -29,18 +48,20 @@ nav{
     position:fixed;
     width:100%;
     top:0;
-    padding:20px;
+    padding:20px 0;
     display:flex;
     justify-content:center;
-    gap:40px;
-    background:rgba(0,0,0,0.3);
+    gap:50px;
+    background:rgba(0,0,0,0.35);
     backdrop-filter:blur(12px);
     z-index:1000;
+    box-shadow:0 0 20px rgba(168,85,247,0.4);
 }
 
 nav a{
     color:white;
     text-decoration:none;
+    font-weight:bold;
     transition:0.3s;
 }
 
@@ -72,6 +93,7 @@ nav a:hover{
     margin-top:20px;
     max-width:600px;
     color:#ccc;
+    line-height:1.5;
 }
 
 .hero button{
@@ -106,6 +128,7 @@ section.show{
 section h2{
     margin-bottom:40px;
     color:#c084fc;
+    text-align:center;
 }
 
 /* ===== CARDS ===== */
@@ -113,6 +136,7 @@ section h2{
     display:flex;
     gap:20px;
     flex-wrap:wrap;
+    justify-content:center;
 }
 
 .card{
@@ -121,9 +145,11 @@ section h2{
     border-radius:15px;
     flex:1;
     min-width:220px;
+    max-width:250px;
     transition:0.4s;
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.1);
+    text-align:center;
 }
 
 .card:hover{
@@ -134,11 +160,14 @@ section h2{
 /* ===== CONTACT ===== */
 .contact{
     text-align:center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
 }
 
 .contact a{
     display:inline-block;
-    margin:10px;
     padding:12px 25px;
     border-radius:25px;
     background:#a855f7;
@@ -199,6 +228,9 @@ section h2{
 </style>
 </head>
 <body>
+
+<!-- LOADER -->
+<div id="loader"></div>
 
 <canvas id="particles"></canvas>
 
@@ -270,6 +302,11 @@ section h2{
 </div>
 
 <script>
+
+/* ===== LOADER ===== */
+window.addEventListener("load",()=>{
+    setTimeout(()=>{document.getElementById("loader").style.display="none";},3000);
+});
 
 /* ===== TYPING EFFECT ===== */
 const words=["Designer","Creator","Learner"];
