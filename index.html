@@ -3,258 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salaudeen Abdulmajeed | Web Designer</title>
+<title>Creative Portfolio</title>
 
 <style>
+
+/* ===== GLOBAL ===== */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
 }
 
 body{
-background:#0d0d0f;
-color:white;
-scroll-behavior:smooth;
+    background:#0f0f14;
+    color:white;
+    scroll-behavior:smooth;
 }
 
-/* NAV */
-nav{
-position:fixed;
-width:100%;
-top:0;
-left:0;
-padding:20px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-z-index:1000;
+/* ===== HERO SECTION ===== */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    flex-direction:column;
 }
 
-nav h2{
-color:#b026ff;
+.hero h1{
+    font-size:50px;
+    color:#c084fc;
 }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:30px;
+.hero p{
+    margin-top:20px;
+    font-size:18px;
+    color:#aaa;
+    max-width:600px;
 }
 
-nav ul li a{
-color:white;
-text-decoration:none;
-transition:0.3s;
+.hero button{
+    margin-top:30px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:#a855f7;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
 }
 
-nav ul li a:hover{
-color:#b026ff;
+.hero button:hover{
+    background:#c084fc;
+    box-shadow:0 0 20px #a855f7;
 }
 
-/* HERO */
-header{
-min-height:100vh;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 10%;
-}
-
-.hero-text{
-max-width:500px;
-animation:fadeUp 1s ease forwards;
-}
-
-.hero-text h1{
-font-size:3rem;
-color:#b026ff;
-}
-
-.hero-text p{
-margin-top:15px;
-color:#ccc;
-line-height:1.6;
-}
-
-.hero-text button{
-margin-top:25px;
-padding:12px 30px;
-background:#b026ff;
-border:none;
-border-radius:30px;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-.hero-text button:hover{
-background:#8a1fd9;
-box-shadow:0 0 20px #b026ff;
-}
-
-/* PROFILE CIRCLE */
-.floating-image {
-  position: fixed;
-  right: 40px;
-  bottom: 25vh;
-  width: 280px;
-  height: 280px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 40px #a855f7;
-  animation: float 4s ease-in-out infinite;
-  z-index: 100;
-}
-
-.floating-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
-
-@media (max-width: 768px) {
-  .floating-image {
-    display: none;
-  }
-}
-
-.profile span{
-color:#b026ff;
-font-size:1.2rem;
-opacity:0.6;
-}
-
-/* SECTIONS */
+/* ===== SECTION STYLE ===== */
 section{
-padding:100px 10%;
-text-align:center;
+    padding:80px 10%;
 }
 
 section h2{
-color:#b026ff;
-margin-bottom:40px;
-font-size:2rem;
+    margin-bottom:40px;
+    font-size:32px;
+    color:#c084fc;
 }
 
-/* CARDS */
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
+/* ===== SKILLS ===== */
+.skills{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-.card{
-background:#141417;
-padding:30px;
-border-radius:15px;
-transition:0.4s;
+.skill-card{
+    background:#1a1a25;
+    padding:20px;
+    border-radius:15px;
+    flex:1;
+    min-width:200px;
+    transition:0.3s;
+    border:1px solid #2a2a3a;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px #b026ff;
+.skill-card:hover{
+    box-shadow:0 0 20px #a855f7;
+    transform:translateY(-5px);
 }
 
-/* CONTACT */
-.contact p{
-margin:10px 0;
+/* ===== SERVICES ===== */
+.services{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-/* FOOTER */
-footer{
-padding:20px;
-text-align:center;
-background:#000;
-color:#777;
+.service-card{
+    background:#1a1a25;
+    padding:25px;
+    border-radius:15px;
+    flex:1;
+    min-width:220px;
+    transition:0.3s;
 }
 
-/* ANIMATIONS */
+.service-card:hover{
+    box-shadow:0 0 25px #a855f7;
+    transform:translateY(-5px);
+}
+
+/* ===== PROJECTS ===== */
+.projects{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.project-card{
+    background:#1a1a25;
+    padding:20px;
+    border-radius:15px;
+    flex:1;
+    min-width:220px;
+    transition:0.3s;
+}
+
+.project-card:hover{
+    box-shadow:0 0 20px #a855f7;
+}
+
+/* ===== CONTACT ===== */
+.contact{
+    text-align:center;
+}
+
+.contact a{
+    display:inline-block;
+    margin:10px;
+    padding:10px 25px;
+    border-radius:25px;
+    background:#a855f7;
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.contact a:hover{
+    background:#c084fc;
+    box-shadow:0 0 15px #a855f7;
+}
+
+/* ===== FLOATING IMAGE ===== */
+.floating-image{
+    position:fixed;
+    right:40px;
+    bottom:25vh;
+    width:260px;
+    height:260px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 0 40px #a855f7;
+    animation:float 4s ease-in-out infinite;
+    z-index:100;
+}
+
+.floating-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
 @keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
-100%{transform:translateY(0);}
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
 }
 
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .floating-image{
+        display:none;
+    }
+    .hero h1{
+        font-size:32px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
-<nav>
-<h2>Maj Design</h2>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-
-<header>
-<div class="hero-text">
-<h1>Salaudeen Abdulmajeed</h1>
-<p>Creative Web Designer focused on modern layouts, clean UI, and stylish digital experiences.</p>
-<button>Hire Me</button>
+<!-- HERO -->
+<div class="hero">
+    <h1>John Creative</h1>
+    <p>I design modern, stylish and responsive websites with a clean user experience.</p>
+    <button>Hire Me</button>
 </div>
 
-<div class="profile">
-<span>Profile Photo Here</span>
+<!-- ABOUT -->
+<section>
+    <h2>About Me</h2>
+    <p>I am a passionate designer focused on creating beautiful and functional digital experiences. I specialize in responsive layouts and modern UI design.</p>
+</section>
+
+<!-- SKILLS -->
+<section>
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill-card">UI Design</div>
+        <div class="skill-card">Responsive Layout</div>
+        <div class="skill-card">HTML & CSS</div>
+        <div class="skill-card">Branding Design</div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+    <h2>Services</h2>
+    <div class="services">
+        <div class="service-card">Website Design</div>
+        <div class="service-card">Landing Pages</div>
+        <div class="service-card">Portfolio Setup</div>
+        <div class="service-card">Social Media Branding</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="project-card">Modern Business Website</div>
+        <div class="project-card">Personal Portfolio</div>
+        <div class="project-card">Landing Page Design</div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+    <h2>Contact</h2>
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">WhatsApp</a>
+</section>
+
+<!-- FLOATING IMAGE -->
+<div class="floating-image">
+    <img src="profile.jpg" alt="Profile">
 </div>
-</header>
-
-<section id="about">
-<h2>About Me</h2>
-<p>I am an emerging web designer passionate about building visually appealing and responsive websites. I focus on clean aesthetics, smooth user experience, and modern design trends.</p>
-</section>
-
-<section id="skills">
-<h2>Skills</h2>
-<div class="cards">
-<div class="card">UI Layout Design</div>
-<div class="card">Responsive Design</div>
-<div class="card">HTML & CSS</div>
-<div class="card">Social Media Branding</div>
-</div>
-</section>
-
-<section id="services">
-<h2>Services</h2>
-<div class="cards">
-<div class="card">Website Design</div>
-<div class="card">Landing Pages</div>
-<div class="card">Portfolio Setup</div>
-<div class="card">Basic Branding</div>
-</div>
-</section>
-
-<section id="contact" class="contact">
-<h2>Contact</h2>
-<p>Email: 1804gram@gmail.com</p>
-<p>WhatsApp: 09077077061</p>
-<p>Instagram: @maj_priv.1804</p>
-<p>TikTok: @ynw_gram</p>
-</section>
-
-  <div class="floating-image">
-   <img src="profile.jpg" alt="Profile">
-  </div>
-  
-<footer>
-© 2026 Salaudeen Abdulmajeed. All Rights Reserved.
-</footer>
 
 </body>
 </html>
