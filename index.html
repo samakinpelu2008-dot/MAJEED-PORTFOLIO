@@ -5,26 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Salaudeen Portfolio</title>
 <style>
-
-/* ===== LOADER ===== */
-#loader{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  border:8px solid #eee;
-  border-top:8px solid #a855f7;
-  border-radius:50%;
-  width:80px;
-  height:80px;
-  animation:spin 1s linear infinite;
-  z-index:2000;
-}
-@keyframes spin{
-  0%{transform:translate(-50%,-50%) rotate(0deg);}
-  100%{transform:translate(-50%,-50%) rotate(360deg);}
-}
-
 /* ===== BACKGROUND ===== */
 body{
     margin:0;
@@ -36,11 +16,29 @@ body{
     scroll-behavior:smooth;
     overflow-x:hidden;
 }
-
 @keyframes bgMove{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
     100%{background-position:0% 50%;}
+}
+
+/* ===== LOADER ===== */
+#loader{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border:10px solid #eee;
+  border-top:10px solid #a855f7;
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  animation:spin 1s linear infinite;
+  z-index:2000;
+}
+@keyframes spin{
+  0%{transform:translate(-50%,-50%) rotate(0deg);}
+  100%{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
 /* ===== NAVBAR ===== */
@@ -56,7 +54,10 @@ nav{
     backdrop-filter:blur(12px);
     z-index:1000;
     box-shadow:0 0 20px rgba(168,85,247,0.4);
+    opacity:0;
+    transition:opacity 0.5s;
 }
+nav.show{opacity:1;}
 
 nav a{
     color:white;
@@ -64,10 +65,7 @@ nav a{
     font-weight:bold;
     transition:0.3s;
 }
-
-nav a:hover{
-    color:#c084fc;
-}
+nav a:hover{color:#c084fc;}
 
 /* ===== HERO ===== */
 .hero{
@@ -78,24 +76,13 @@ nav a:hover{
     align-items:center;
     text-align:center;
     position:relative;
+    opacity:0;
+    transition:opacity 0.5s;
 }
-
-.hero h1{
-    font-size:50px;
-    color:#c084fc;
-}
-
-.hero span{
-    color:#a855f7;
-}
-
-.hero p{
-    margin-top:20px;
-    max-width:600px;
-    color:#ccc;
-    line-height:1.5;
-}
-
+.hero.show{opacity:1;}
+.hero h1{font-size:50px;color:#c084fc;}
+.hero span{color:#a855f7;}
+.hero p{margin-top:20px;max-width:600px;color:#ccc;line-height:1.5;}
 .hero button{
     margin-top:30px;
     padding:14px 35px;
@@ -107,10 +94,7 @@ nav a:hover{
     color:white;
     transition:0.3s;
 }
-
-.hero button:hover{
-    box-shadow:0 0 25px #a855f7;
-}
+.hero button:hover{box-shadow:0 0 25px #a855f7;}
 
 /* ===== SECTIONS ===== */
 section{
@@ -119,17 +103,8 @@ section{
     transform:translateY(50px);
     transition:1s;
 }
-
-section.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-section h2{
-    margin-bottom:40px;
-    color:#c084fc;
-    text-align:center;
-}
+section.show{opacity:1;transform:translateY(0);}
+section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
 
 /* ===== CARDS ===== */
 .grid{
@@ -138,7 +113,6 @@ section h2{
     flex-wrap:wrap;
     justify-content:center;
 }
-
 .card{
     background:rgba(255,255,255,0.05);
     padding:25px;
@@ -151,7 +125,6 @@ section h2{
     border:1px solid rgba(255,255,255,0.1);
     text-align:center;
 }
-
 .card:hover{
     transform:translateY(-10px);
     box-shadow:0 0 25px #a855f7;
@@ -164,8 +137,10 @@ section h2{
     flex-wrap:wrap;
     justify-content:center;
     gap:15px;
+    opacity:0;
+    transition:opacity 0.5s;
 }
-
+.contact.show{opacity:1;}
 .contact a{
     display:inline-block;
     padding:12px 25px;
@@ -175,10 +150,7 @@ section h2{
     text-decoration:none;
     transition:0.3s;
 }
-
-.contact a:hover{
-    box-shadow:0 0 20px #a855f7;
-}
+.contact a:hover{box-shadow:0 0 20px #a855f7;}
 
 /* ===== FLOATING IMAGE ===== */
 .floating-image{
@@ -192,17 +164,12 @@ section h2{
     box-shadow:0 0 40px #a855f7;
     animation:float 4s ease-in-out infinite;
     z-index:500;
+    opacity:0;
+    transition:opacity 0.5s;
 }
-
-.floating-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-@keyframes float{
-    50%{transform:translateY(-15px);}
-}
+.floating-image.show{opacity:1;}
+.floating-image img{width:100%;height:100%;object-fit:cover;}
+@keyframes float{50%{transform:translateY(-15px);}}
 
 /* ===== PARTICLES ===== */
 #particles{
@@ -217,12 +184,8 @@ section h2{
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-    .floating-image{
-        display:none;
-    }
-    .hero h1{
-        font-size:32px;
-    }
+    .floating-image{display:none;}
+    .hero h1{font-size:32px;}
 }
 
 </style>
@@ -305,11 +268,14 @@ section h2{
 
 /* ===== LOADER ===== */
 window.addEventListener("load",()=>{
-    setTimeout(()=>{document.getElementById("loader").style.display="none";},3000);
+    setTimeout(()=>{
+        document.getElementById("loader").style.display="none";
+        document.querySelectorAll(".hero, nav, .floating-image, .contact, section").forEach(el=>el.classList.add("show"));
+    },2000); // 2 seconds loader
 });
 
 /* ===== TYPING EFFECT ===== */
-const words=["Designer","Creator","Learner"];
+const words=["Majeed","designer","Majeed"];
 let i=0,j=0,current="",isDeleting=false;
 function type(){
 current=words[i];
@@ -361,4 +327,4 @@ animate();
 
 </script>
 </body>
-</html>
+  </html>
