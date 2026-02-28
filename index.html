@@ -7,12 +7,38 @@
 
 <style>
 
+/* ===== LOADER ===== */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:#0f0f14;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+}
+
+.loader-circle{
+    width:60px;
+    height:60px;
+    border:6px solid #222;
+    border-top:6px solid #a855f7;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
 /* ===== GLOBAL ===== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
@@ -21,14 +47,39 @@ body{
     scroll-behavior:smooth;
 }
 
-/* ===== HERO SECTION ===== */
+/* ===== NAVBAR ===== */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(15,15,20,0.8);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:20px;
+    z-index:500;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#c084fc;
+}
+
+/* ===== HERO ===== */
 .hero{
     height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
     flex-direction:column;
+    text-align:center;
+    padding-top:80px;
 }
 
 .hero h1{
@@ -38,7 +89,6 @@ body{
 
 .hero p{
     margin-top:20px;
-    font-size:18px;
     color:#aaa;
     max-width:600px;
 }
@@ -51,18 +101,24 @@ body{
     background:#a855f7;
     color:white;
     cursor:pointer;
-    font-size:16px;
     transition:0.3s;
 }
 
 .hero button:hover{
-    background:#c084fc;
     box-shadow:0 0 20px #a855f7;
 }
 
-/* ===== SECTION STYLE ===== */
+/* ===== SECTION ===== */
 section{
-    padding:80px 10%;
+    padding:100px 10%;
+    opacity:0;
+    transform:translateY(40px);
+    transition:0.8s;
+}
+
+section.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 section h2{
@@ -71,67 +127,26 @@ section h2{
     color:#c084fc;
 }
 
-/* ===== SKILLS ===== */
-.skills{
+/* ===== CARDS ===== */
+.grid{
     display:flex;
     gap:20px;
     flex-wrap:wrap;
 }
 
-.skill-card{
-    background:#1a1a25;
-    padding:20px;
-    border-radius:15px;
-    flex:1;
-    min-width:200px;
-    transition:0.3s;
-    border:1px solid #2a2a3a;
-}
-
-.skill-card:hover{
-    box-shadow:0 0 20px #a855f7;
-    transform:translateY(-5px);
-}
-
-/* ===== SERVICES ===== */
-.services{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.service-card{
+.card{
     background:#1a1a25;
     padding:25px;
     border-radius:15px;
     flex:1;
     min-width:220px;
     transition:0.3s;
+    border:1px solid #2a2a3a;
 }
 
-.service-card:hover{
+.card:hover{
     box-shadow:0 0 25px #a855f7;
-    transform:translateY(-5px);
-}
-
-/* ===== PROJECTS ===== */
-.projects{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.project-card{
-    background:#1a1a25;
-    padding:20px;
-    border-radius:15px;
-    flex:1;
-    min-width:220px;
-    transition:0.3s;
-}
-
-.project-card:hover{
-    box-shadow:0 0 20px #a855f7;
+    transform:translateY(-8px);
 }
 
 /* ===== CONTACT ===== */
@@ -151,8 +166,7 @@ section h2{
 }
 
 .contact a:hover{
-    background:#c084fc;
-    box-shadow:0 0 15px #a855f7;
+    box-shadow:0 0 20px #a855f7;
 }
 
 /* ===== FLOATING IMAGE ===== */
@@ -196,53 +210,67 @@ section h2{
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-circle"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
     <h1>John Creative</h1>
-    <p>I design modern, stylish and responsive websites with a clean user experience.</p>
+    <p>I design stylish, modern and responsive websites with smooth user experience.</p>
     <button>Hire Me</button>
 </div>
 
 <!-- ABOUT -->
-<section>
+<section id="about">
     <h2>About Me</h2>
-    <p>I am a passionate designer focused on creating beautiful and functional digital experiences. I specialize in responsive layouts and modern UI design.</p>
+    <p>I am a passionate designer focused on creating beautiful digital experiences that combine creativity and functionality.</p>
 </section>
 
 <!-- SKILLS -->
-<section>
+<section id="skills">
     <h2>Skills</h2>
-    <div class="skills">
-        <div class="skill-card">UI Design</div>
-        <div class="skill-card">Responsive Layout</div>
-        <div class="skill-card">HTML & CSS</div>
-        <div class="skill-card">Branding Design</div>
+    <div class="grid">
+        <div class="card">UI Design</div>
+        <div class="card">Responsive Layout</div>
+        <div class="card">HTML & CSS</div>
+        <div class="card">Branding Design</div>
     </div>
 </section>
 
 <!-- SERVICES -->
-<section>
+<section id="services">
     <h2>Services</h2>
-    <div class="services">
-        <div class="service-card">Website Design</div>
-        <div class="service-card">Landing Pages</div>
-        <div class="service-card">Portfolio Setup</div>
-        <div class="service-card">Social Media Branding</div>
+    <div class="grid">
+        <div class="card">Website Design</div>
+        <div class="card">Landing Pages</div>
+        <div class="card">Portfolio Setup</div>
+        <div class="card">Social Media Branding</div>
     </div>
 </section>
 
 <!-- PROJECTS -->
-<section>
+<section id="projects">
     <h2>Projects</h2>
-    <div class="projects">
-        <div class="project-card">Modern Business Website</div>
-        <div class="project-card">Personal Portfolio</div>
-        <div class="project-card">Landing Page Design</div>
+    <div class="grid">
+        <div class="card">Modern Business Website</div>
+        <div class="card">Creative Portfolio</div>
+        <div class="card">Landing Page Design</div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact">
+<section id="contact" class="contact">
     <h2>Contact</h2>
     <a href="#">Instagram</a>
     <a href="#">TikTok</a>
@@ -253,6 +281,27 @@ section h2{
 <div class="floating-image">
     <img src="profile.jpg" alt="Profile">
 </div>
+
+<script>
+
+/* ===== LOADER REMOVE ===== */
+window.addEventListener("load", function(){
+    document.getElementById("loader").style.display="none";
+});
+
+/* ===== SCROLL REVEAL ===== */
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add("show");
+        }
+    });
+});
+
+</script>
 
 </body>
 </html>
