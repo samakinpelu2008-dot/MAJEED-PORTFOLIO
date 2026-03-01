@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Salaudeen Portfolio</title>
+
+<!-- FONT AWESOME (FOR ICONS) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
+
 /* ===== BACKGROUND ===== */
 body{
     margin:0;
@@ -37,7 +42,6 @@ body{
   z-index:2000;
 }
 @keyframes spin{
-  0%{transform:translate(-50%,-50%) rotate(0deg);}
   100%{transform:translate(-50%,-50%) rotate(360deg);}
 }
 
@@ -75,14 +79,14 @@ nav a:hover{color:#c084fc;}
     justify-content:center;
     align-items:center;
     text-align:center;
-    position:relative;
     opacity:0;
-    transition:opacity 0.5s;
+    transition:0.5s;
 }
 .hero.show{opacity:1;}
+
 .hero h1{font-size:50px;color:#c084fc;}
 .hero span{color:#a855f7;}
-.hero p{margin-top:20px;max-width:600px;color:#ccc;line-height:1.5;}
+.hero p{margin-top:20px;max-width:600px;color:#ccc;}
 .hero button{
     margin-top:30px;
     padding:14px 35px;
@@ -117,9 +121,7 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
     background:rgba(255,255,255,0.05);
     padding:25px;
     border-radius:15px;
-    flex:1;
     min-width:220px;
-    max-width:250px;
     transition:0.4s;
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.1);
@@ -130,27 +132,67 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
     box-shadow:0 0 25px #a855f7;
 }
 
-/* ===== CONTACT ===== */
-.contact{
-    text-align:center;
+/* ===== PREMIUM CONTACT ===== */
+#contact{text-align:center;}
+
+.contact-icons{
     display:flex;
-    flex-wrap:wrap;
     justify-content:center;
-    gap:15px;
-    opacity:0;
-    transition:opacity 0.5s;
+    gap:40px;
+    margin-top:40px;
+    flex-wrap:wrap;
 }
-.contact.show{opacity:1;}
-.contact a{
-    display:inline-block;
-    padding:12px 25px;
-    border-radius:25px;
-    background:#a855f7;
-    color:white;
+
+.icon{
+    position:relative;
+    width:75px;
+    height:75px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    border-radius:50%;
     text-decoration:none;
-    transition:0.3s;
+    color:white;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.2);
+    transition:0.4s;
+    animation:floatIcon 4s ease-in-out infinite;
 }
-.contact a:hover{box-shadow:0 0 20px #a855f7;}
+
+@keyframes floatIcon{
+    50%{transform:translateY(-10px);}
+}
+
+.icon span{
+    position:absolute;
+    bottom:-35px;
+    font-size:14px;
+    opacity:0;
+    transition:0.3s;
+    color:#ccc;
+}
+
+.icon:hover span{opacity:1;}
+.icon:hover{transform:scale(1.2);}
+
+.instagram:hover{
+    box-shadow:0 0 25px #dd2a7b;
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+}
+.tiktok:hover{
+    box-shadow:0 0 25px #00f2ea;
+    background:#000;
+}
+.whatsapp:hover{
+    box-shadow:0 0 25px #25D366;
+    background:#25D366;
+}
+.email:hover{
+    box-shadow:0 0 25px #a855f7;
+    background:#a855f7;
+}
 
 /* ===== FLOATING IMAGE ===== */
 .floating-image{
@@ -164,10 +206,7 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
     box-shadow:0 0 40px #a855f7;
     animation:float 4s ease-in-out infinite;
     z-index:500;
-    opacity:0;
-    transition:opacity 0.5s;
 }
-.floating-image.show{opacity:1;}
 .floating-image img{width:100%;height:100%;object-fit:cover;}
 @keyframes float{50%{transform:translateY(-15px);}}
 
@@ -182,7 +221,6 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
     z-index:-1;
 }
 
-/* ===== MOBILE ===== */
 @media(max-width:768px){
     .floating-image{display:none;}
     .hero h1{font-size:32px;}
@@ -192,9 +230,7 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader"></div>
-
 <canvas id="particles"></canvas>
 
 <nav>
@@ -211,13 +247,11 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
 <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
-<p>Hello! I am Salaudeen Abdulmajeed Ademola, an amateur web designer passionate about creating digital experiences that blend style with functionality. I love learning and experimenting with web design trends.</p>
+<p>Hello! I am Salaudeen Abdulmajeed Ademola, passionate about creating stylish and functional digital experiences.</p>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
 <h2>Skills</h2>
 <div class="grid">
@@ -228,7 +262,6 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
 </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
 <h2>Services</h2>
 <div class="grid">
@@ -239,43 +272,48 @@ section h2{margin-bottom:40px;color:#c084fc;text-align:center;}
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="grid">
 <div class="card">Personal Portfolio</div>
 <div class="card">Landing Page Concept</div>
-<div class="card">Blog Template Design</div>
+<div class="card">Blog Template</div>
 </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact">
 <h2>Contact Me</h2>
-<a href="https://www.instagram.com/maj_priv.1804" target="_blank">Instagram</a>
-<a href="https://www.tiktok.com/@ynw_gram" target="_blank">TikTok</a>
-<a href="https://wa.me/09077077061" target="_blank">WhatsApp 1</a>
-<a href="https://wa.me/09031165167" target="_blank">WhatsApp 2</a>
-<a href="mailto:1804gram@gmail.com">Email</a>
+<div class="contact-icons">
+<a href="https://www.instagram.com/maj_priv.1804" target="_blank" class="icon instagram">
+<i class="fab fa-instagram"></i><span>Instagram</span></a>
+
+<a href="https://www.tiktok.com/@ynw_gram" target="_blank" class="icon tiktok">
+<i class="fab fa-tiktok"></i><span>TikTok</span></a>
+
+<a href="https://wa.me/09077077061" target="_blank" class="icon whatsapp">
+<i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+
+<a href="mailto:1804gram@gmail.com" class="icon email">
+<i class="fas fa-envelope"></i><span>Email</span></a>
+</div>
 </section>
 
-<!-- FLOATING IMAGE -->
 <div class="floating-image">
-<img src="salaudeen.jpg" alt="Salaudeen Profile">
+<img src="salaudeen.jpg" alt="Salaudeen">
 </div>
 
 <script>
 
-/* ===== LOADER ===== */
+/* Loader */
 window.addEventListener("load",()=>{
-    setTimeout(()=>{
-        document.getElementById("loader").style.display="none";
-        document.querySelectorAll(".hero, nav, .floating-image, .contact, section").forEach(el=>el.classList.add("show"));
-    },2000); // 2 seconds loader
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+document.querySelectorAll(".hero, nav, section").forEach(el=>el.classList.add("show"));
+},2000);
 });
 
-/* ===== TYPING EFFECT ===== */
-const words=["Majeed","designer","Majeed"];
+/* Typing */
+const words=["Majeed","Designer","Developer"];
 let i=0,j=0,current="",isDeleting=false;
 function type(){
 current=words[i];
@@ -290,7 +328,7 @@ setTimeout(type,100);
 }
 type();
 
-/* ===== SCROLL ANIMATION ===== */
+/* Scroll Animation */
 const sections=document.querySelectorAll("section");
 window.addEventListener("scroll",()=>{
 sections.forEach(sec=>{
@@ -300,7 +338,7 @@ sec.classList.add("show");
 });
 });
 
-/* ===== PARTICLES ===== */
+/* Particles */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
@@ -327,4 +365,4 @@ animate();
 
 </script>
 </body>
-  </html>
+</html>
